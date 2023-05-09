@@ -4,6 +4,11 @@
 /* Libraries */
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 /* Structs */
 
@@ -36,6 +41,9 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* Def */
+#define DELIM " \n\t"
 
 /* Protoypes */
 /* Placeholder */
