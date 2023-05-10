@@ -53,3 +53,20 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
         value = value->next;
     }
 }
+
+/**
+ * pint - prints the value at the top of the stack
+ * @stack: pointer to stack
+ * @line_number: line number
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+    if (!*stack || !stack)
+    {
+        fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+        fcStack(stack);
+        exit(EXIT_FAILURE);
+    }
+    else
+        fprintf(stderr, "%d\n", (*stack)->n);
+}
