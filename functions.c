@@ -14,14 +14,14 @@ void push(stack_t **stack, unsigned int line_number)
     new = malloc(sizeof(stack_t));
     if (!new)
     {
-        dprintf(stderr, "Error: malloc failed\n");
+        fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
     }
 
     token = strtok(NULL, DELIM);
     if (!token || !stack)
     {
-        dprintf(stderr, "L%u: usage: push integer\n", line_number);
+        fprintf(stderr, "L%u: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
 
