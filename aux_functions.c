@@ -1,50 +1,49 @@
 #include "monty.h"
 
 /**
- * get_func - chooses the correct function based on the input
+ * op_tofunc - chooses the correct function based on the opcode
  * @op: opcode
- *
- * Return: the function corresponding to the opcode,
- * 0 otherwise
  */
-int (*get_func(char *op))(stack_t **stack, unsigned int line_number)
+void (*op_tofunc(char *op))(stack_t **stack, unsigned int line_number)
 {
-	int i = 0;
+    size_t i = 0;
 
-	instruction_t opcodes[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}};
+    instruction_t opcodes[] = {
+        {"push", push},
+        {"pall", pall},
+        /* {"pint", pint},
+        {"pop", pop},
+        {"swap", swap},
+        {"add", add},
+        {"nop", nop}, */
+        {NULL, NULL}};
 
-	while (i < 2)
-	{
-		if (!strcmp(op, opcodes[i].opcode))
-		{
-			return (opcodes[i].f);
-		}
-		i++;
-	}
-	return (0);
+    while (opcodes[i].opcode) /* i < 2 */
+    {
+        if (strcmp(op, opcodes[i].opcode))
+        {
+            return (opcodes[i].f);
+        }
+        i++;
+    }
+    return (NULL);
 }
 
 /**
- * fcStack - frees mallocs and close files
- * @stack: pointer to stack
+ * _isdigit - checks for digit
+ * @str: string input to be checked
+ *
+ * Return: 0 if digit, 1 otherwise
  */
-void fcStack(stack_t **stack)
+int _isdigit(char *str)
 {
-	stack_t *current = *stack;
+    int i = 0;
 
-	for (; current; current = *stack)
-	{
-		*stack = (*stack)->next;
-		free(current);
-	}
-	fclose();
-	free();
+    while (str[i])
+    {
+        if (isdigit(str[i]) == 0)
+            return (0);
+        i++;
+    }
+    return (1);
 }
