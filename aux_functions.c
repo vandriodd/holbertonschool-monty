@@ -30,6 +30,23 @@ void (*op_tofunc(char *op))(stack_t **stack, unsigned int line_number)
 }
 
 /**
+ * fcStack - frees mallocs and close files
+ * @stack: pointer to stack
+ */
+void fcStack(stack_t *stack)
+{
+    stack_t *tmp = stack; /* points to current element */
+
+    if (tmp)
+    {
+        *stack = *stack->next;
+        free(tmp);
+    }
+    fclose(global.fd);
+    free(global.line);
+}
+
+/**
  * _isdigit - checks for digit
  * @str: string input to be checked
  *
