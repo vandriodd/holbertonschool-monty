@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-/* Structs */
+/* Structures */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -23,9 +23,9 @@
  */
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
 } stack_t;
 
 /**
@@ -38,18 +38,14 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+    char *opcode;
+    void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Def */
+/* Macros */
 #define DELIM " \n\t"
 
-/* Protoypes */
-int (*get_func(char *op))(stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
+/* Prototypes */
+/* Placeholder */
 
 #endif
