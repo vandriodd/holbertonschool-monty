@@ -43,25 +43,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/**
- * struct global - ...
- * @fd: ...
- * @line: ...
- *
- * Description: ...
- */
-struct
-{
-	FILE *fd;
-	char *line;
-} global;
-
 /* Macros */
 #define DELIM " \n\t"
 
 /* Prototypes */
 void (*op_tofunc(char *op))(stack_t **stack, unsigned int line_number);
-void fcStack(stack_t *stack);
+void free_stack(stack_t *stack);
 int _isdigit(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
