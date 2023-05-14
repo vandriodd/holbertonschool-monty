@@ -47,6 +47,6 @@ int main(int ac, char **av)
     }
     fclose(fd);
     /* free(op); */
-    fcStack(stack);
+    free_stack(stack);
     return (0);
 }

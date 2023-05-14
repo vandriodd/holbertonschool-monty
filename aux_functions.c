@@ -31,20 +31,19 @@ void (*op_tofunc(char *op))(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * fcStack - frees mallocs and close files
+ * free_stack - frees stack
  * @stack: pointer to stack
  */
-void fcStack(stack_t *stack)
+void free_stack(stack_t *stack)
 {
-    stack_t *tmp = stack; /* points to current element */
+    stack_t *tmp = NULL;
 
-    if (tmp)
+    while (stack)
     {
-        *stack = *stack->next;
+        tmp = stack; /* points to current element */
+        stack = stack->next; /* moves */
         free(tmp);
     }
-    fclose(global.fd);
-    free(global.line);
 }
 
 /**
