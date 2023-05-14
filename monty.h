@@ -61,8 +61,14 @@ struct
 
 /* Prototypes */
 void (*op_tofunc(char *op))(stack_t **stack, unsigned int line_number);
+void fcStack(stack_t *stack);
+int _isdigit(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
-void fcStack(stack_t *stack);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number);
 
 #endif

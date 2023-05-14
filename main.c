@@ -29,8 +29,9 @@ int main(int ac, char **av)
         exit(EXIT_FAILURE);
     }
 
-    while (getline(&buff, &size, fd))
+    while (getline(&buff, &size, fd) != -1)
     {
+        line_number++;
         op = strtok(buff, DELIM);
         if (!op)
             continue;
@@ -41,9 +42,11 @@ int main(int ac, char **av)
             fprintf(stderr, "L%lu unknown instruction %s\n", line_number, op);
             exit(EXIT_FAILURE);
         }
+        /* else */
+        f(&stack, line_number);
     }
     fclose(fd);
-    free(op);
+    /* free(op); */
     fcStack(stack);
     return (0);
 }
