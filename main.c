@@ -39,7 +39,7 @@ int main(int ac, char **av)
 		f = op_tofunc(op); /* takes the opcode and calls the function attached */
 		if (!f)
 		{
-			fprintf(stderr, "L%lu unknown instruction %s\n", line_number, op);
+			fprintf(stderr, "L%lu: unknown instruction %s\n", line_number, op);
 			exit(EXIT_FAILURE);
 		}
 		/* else */
