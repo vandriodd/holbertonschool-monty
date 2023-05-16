@@ -7,6 +7,17 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
+	int temp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = temp;
 }
 
 /**
@@ -16,6 +27,17 @@ void swap(stack_t **stack, unsigned int line_number)
  */
 void add(stack_t **stack, unsigned int line_number)
 {
+	int sum;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	sum = (*stack)->n + (*stack)->next->n;
+	pop(stack, line_number);
+	(*stack)->n = sum;
 }
 
 /**
@@ -23,5 +45,8 @@ void add(stack_t **stack, unsigned int line_number)
  * @stack: pointer to stack
  * @line_number: number of the line
  */
-void nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
-{}
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
