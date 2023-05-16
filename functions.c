@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 	new->next = *stack;
 
 	if (new->next != NULL)
-		(new->next)->prev = new; /* establishes the two-way binding relationship between next/prev */
+		(new->next)->prev = new; /* establishes the two-way binding relationship */
 	*stack = new; /* new ptr is now the top of the stack */
 }
 
