@@ -40,7 +40,7 @@ int main(int ac, char **av)
 		if (!f)
 		{
 			fprintf(stderr, "L%lu: unknown instruction %s\n", line_number, op);
-			exit(EXIT_FAILURE);
+			fclose(fd), free(buff), free_stack(stack), exit(EXIT_FAILURE);
 		}
 		/* else */
 		f(&stack, line_number);
