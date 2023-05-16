@@ -18,10 +18,11 @@ void (*op_tofunc(char *op))(stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 		};
 
-	while (opcodes[i].opcode) /* i < 7 */
+	while (opcodes[i].opcode) /* i < 8 */
 	{
 		if (strcmp(opcodes[i].opcode, op) == 0)
 		{
