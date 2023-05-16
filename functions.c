@@ -65,7 +65,7 @@ void pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	/* else */
-	fprintf(stderr, "%d\n", (*stack)->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
